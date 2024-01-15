@@ -20,6 +20,10 @@ const Counter = mongoose.model('Counter6', CounterSchema);
 app.use(express.json());
 app.use(cors())
 
+app.get("/", (req, res) => {
+    res.send("Welcome to MERN + Zustand counter app. only 1 route is available supports POST and get method '/counter' ")
+})
+
 app.get('/counter', async (req, res) => {
     try {
         const counter = await Counter.findOne();
