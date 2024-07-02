@@ -21,8 +21,11 @@ const Counter = mongoose.model('Counter6', CounterSchema);
 app.use(express.json());
 app.use(cors())
 
-app.get('/api/get', async () => {
-    res.send({ message: "API is working" })
+app.get('/api/get', async (req, res) => {
+    res.json({ message: "API is working" })
+})
+app.get('/api/test', async (req, res) => {
+    res.json({ name: "ramrachai", email: "ramrachaim@gmail.com", phone: "8801732900565" })
 })
 
 app.get("/", (req, res) => {
