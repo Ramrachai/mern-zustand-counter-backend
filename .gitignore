@@ -1,2 +1,5 @@
 /node_modules
 .env
+ec2_s1_key_pair.pem
+sshconnect.txt
+steps.md

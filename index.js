@@ -5,9 +5,10 @@ const dotenv = require("dotenv")
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+const mongoDBURL = process.env.mongoDBURL || "mongodb://localhost:27017/test"
 dotenv.config()
 
-mongoose.connect(process.env.mongoDBURL)
+mongoose.connect(mongoDBURL)
     .then(res => console.log("mongodb connected successfully"))
     .catch(err => console.log("database connection failed", err))
 
@@ -20,8 +21,12 @@ const Counter = mongoose.model('Counter6', CounterSchema);
 app.use(express.json());
 app.use(cors())
 
+app.get('/api/get', async () => {
+    res.send({ message: "API is working" })
+})
+
 app.get("/", (req, res) => {
-    res.send("Welcome to MERN + Zustand counter app. only 1 route is available supports POST and get method '/counter' ")
+    res.send("Welcome to Updated code ")
 })
 
 app.get('/counter', async (req, res) => {
